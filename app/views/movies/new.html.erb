@@ -7,11 +7,11 @@
 <%= form_with( url: movies_path ) do %>
   <div>
     <%= label_tag :title, "Movie Title" %>
-    <%= text_field_tag :title, @movie.title, id: "title" %>
+    <%= text_field_tag :title, @movie.title, id: :title %>
   </div>
   <div>
     <%= label_tag :description, "Movie Description" %>
-    <%= text_area_tag :description, @movie.description, id: "description", rows: 3 %>
+    <%= text_area_tag :description, @movie.description, id: :description, rows: 3 %>
   </div>
 
   <%= button_tag "Submit"%>
