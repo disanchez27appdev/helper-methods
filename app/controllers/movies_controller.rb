@@ -1,8 +1,6 @@
 class MoviesController < ApplicationController
   def new
     @the_movie = Movie.new
-
-    "movies/new.html.erb"
   end
 
   def index
@@ -15,9 +13,7 @@ class MoviesController < ApplicationController
         render json: @list_of_movies
       end
 
-      format.html do
-        "movies/index.html.erb"
-      end
+      format.html
     end
   end
 
@@ -28,7 +24,6 @@ class MoviesController < ApplicationController
 
     @the_movie = matching_movies.first
 
-    "movies/show.html.erb" 
   end
 
   def create
@@ -40,7 +35,7 @@ class MoviesController < ApplicationController
       @the_movie.save
       redirect_to movies_url, notice: "Movie created successfully."
     else
-      "movies/new.html.erb"
+      render "new"
     end
   end
 
@@ -50,8 +45,6 @@ class MoviesController < ApplicationController
     matching_movies = Movie.where({ :id => the_id })
 
     @the_movie = matching_movies.first
-
-    "movies/edit.html.erb"
   end
 
   def update
